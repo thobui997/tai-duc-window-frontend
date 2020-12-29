@@ -1,0 +1,75 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color fixed-top scrolling-navbar fixed-top"
+  [containerInside]="true">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand> <a class="navbar-brand" href="index.html"><strong class="text-primary">TAIDUC</strong><small
+        style="font-weight: 300 !important;">WINDOW</small></a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link waves-light" mdbWavesEffect>Trang chủ<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect>Sản phẩm</a>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Tư vấn<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Góc tư vấn</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Kiến thức chuyên môn</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Tin công trình</a>
+        </div>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Tin tức<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Tin tức trong ngành</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Báo giá cửa nhôm</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Báo giá cửa cuốn</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Báo giá cửa kính cường lực</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect>Giới thiệu</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect>Liên hệ</a>
+      </li>
+
+    </ul>
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link">
+          <mdb-icon fab icon="facebook-square"></mdb-icon>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <mdb-icon fab icon="youtube"></mdb-icon>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <mdb-icon fab icon="linkedin"></mdb-icon>
+        </a>
+      </li>
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
