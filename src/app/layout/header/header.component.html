@@ -12,13 +12,14 @@
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Trang chủ<span class="sr-only">(current)</span></a>
+        <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Trang chủ<span
+            class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link waves-light" routerLink="/product" mdbWavesEffect>Sản phẩm</a>
       </li>
       <!-- Dropdown -->
-      <li class="nav-item dropdown" routerLinkActive="active"  dropdown>
+      <li class="nav-item dropdown" routerLinkActive="active" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           Tư vấn<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
@@ -29,23 +30,25 @@
       </li>
 
       <!-- Dropdown -->
-      <li class="nav-item dropdown" dropdown>
+      <li class="nav-item dropdown" routerLinkActive="active" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           Tin tức<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Tin tức trong ngành</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Báo giá cửa nhôm</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Báo giá cửa cuốn</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Báo giá cửa kính cường lực</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/news/tin-tuc-trong-nganh">Tin tức trong
+            ngành</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/news/bao-gia-cua-nhom">Báo giá cửa nhôm</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/news/bao-gia-cua-cuon">Báo giá cửa cuốn</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/news/bao-gia-cua-kinh-cuong-luc">Báo giá cửa
+            kính cường lực</a>
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Giới thiệu</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" routerLink="/introduce" mdbWavesEffect>Giới thiệu</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Liên hệ</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" routerLink="/contact" mdbWavesEffect>Liên hệ</a>
       </li>
 
     </ul>
