@@ -17,7 +17,7 @@ section {
 }
 
 main {
-  min-height: calc(100vh - 318px - 263px);
+  min-height: calc(100vh - 318px - 257px);
 }
 
 .section-title {
@@ -79,9 +79,6 @@ main {
   color: #6c757d;
 }
 
-.carousel-item.product-detail-item {
-  height: 400px !important;
-}
 
 .contact-section .form .btn-floating {
   left: 3px !important;

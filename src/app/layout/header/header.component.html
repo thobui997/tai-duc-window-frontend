@@ -11,20 +11,20 @@
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect>Trang chủ<span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Trang chủ<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Sản phẩm</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" routerLink="/product" mdbWavesEffect>Sản phẩm</a>
       </li>
       <!-- Dropdown -->
-      <li class="nav-item dropdown" dropdown>
+      <li class="nav-item dropdown" routerLinkActive="active"  dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           Tư vấn<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Góc tư vấn</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Kiến thức chuyên môn</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Tin công trình</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/advisory/goc-tu-van">Góc tư vấn</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/advisory/kien-thuc">Kiến thức chuyên môn</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/advisory/tin-cong-trinh">Tin công trình</a>
         </div>
       </li>
 
