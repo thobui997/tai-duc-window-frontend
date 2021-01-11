@@ -1,155 +1,35 @@
-<main>
-  <!--Section: Content-->
-  <section class="container mt-5">
-    <!-- Grid row -->
-    <div class="row mb-4">
-      <!-- Grid column -->
-      <div class="col-lg-5 col-md-12 mb-lg-0 mb-4">
-        <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-          <img
-            class="img-fluid w-100"
-            src="http://azdoor.vn/public/userfiles/news/cac-meo-lam-sach-cho-cua-kinh-nha-ban-luon-sach-tinh-tuom-sang-bong.jpg"
-            alt="Sample image"
-          />
-          <a href="chi-tiet-bai-viet.html">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
+<!--Section: Content-->
+<div class="container my-5">
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col-lg-5 col-md-12 mb-lg-0 mb-4">
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
+        <img class="img-fluid w-100 h-100" [src]="data?.image.url" alt="Sample image" />
+        <a [routerLink]="[currentUrl, data.id]">
+          <div class="mask rgba-white-slight"></div>
+        </a>
       </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-lg-7 col-md-6 mb-md-0 mb-4 mt-xl-4">
-        <h3 class="font-weight-normal mb-4">
-          Các mẹo làm sạch cho cửa Kính nhà bạn luôn sạch tinh tươm, sáng bóng
-        </h3>
-        <small class="font-weight-bold text-muted"
-          ><i class="fas fa-clock-o"></i>27/02/2020</small
-        >
-
-        <p class="text-muted text-clip-2">
-          Cửa kính, gương hay những đồ dùng có vẻ ngoài sáng bóng là những đồ
-          dùng rất dễ bám bụi và vết bẩn, nên chúng luôn đòi hỏi phải được lau
-          chùi mỗi ngày để đảm bảo thẩm mĩ. Vậy làm thế nào để không phải mất
-          nhiều thời gian lau chùi mà cửa kính nhà bạn vẫn sáng bóng, sạch tinh
-          tươm??? Hãy để bài viết này chỉ cho bạn Bí quyết giữ cho Cửa Kính nhà
-          bạn luôn sáng bóng, sạch tinh tươm với nguyên liệu rẻ tiền, có sẵn
-          ngay trong nhà mà Không cần mua nước lau kính bạn hoàn toàn có thể làm
-          sạch cửa kính, và không làm mất nhiều thời gian của các bà nội trợ mà
-          vẫn hiệu quả vô cùng nhé.
-        </p>
-        <button class="btn btn-outline-primary mx-0" [routerLink]="[currentUrl, '1']"
-          >Chi tiết <i class="fas fa-arrow-right fs-9 ml-2"></i
-        ></button>
-      </div>
-      <!-- Grid column -->
     </div>
-    <!-- Grid row -->
+    <!-- Grid column -->
 
-    <!-- Grid row -->
-    <div class="row mb-4">
-      <!-- Grid column -->
-      <div class="col-lg-5 col-md-12 mb-lg-0 mb-4">
-        <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-          <img
-            class="img-fluid"
-            src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg"
-            alt="Sample image"
-          />
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-      </div>
-      <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="col-lg-7 col-md-6 mb-md-0 mb-4 mt-xl-4">
+      <h3 class="font-weight-normal mb-4">
+        {{data?.title}}
+      </h3>
+      <small class="font-weight-bold text-muted"><i
+          class="fas fa-clock-o"></i>{{data?.createdAt | date: 'dd/MM/yyyy'}}</small>
 
-      <!-- Grid column -->
-      <div class="col-lg-7 col-md-6 mb-md-0 mb-4 mt-xl-4">
-        <h3 class="font-weight-normal mb-4">
-          Convert your visitors to real customers
-        </h3>
-        <p class="text-muted">
-          Option as can distributors. And to suppliers, given a copy the
-          horrible arrange yes, we had hundreds leave was more which a I the
-          king's had the so soon throughout in necessary which at way did phase
-          a young written, descriptions, late uninspired, to times owner
-          themselves them. Get sported uninspired, the a box to an to but on
-          been the succeed have couldn't set.
-        </p>
-        <a class="btn btn-outline-primary mx-0" href="#"
-          >Chi tiết <i class="fas fa-arrow-right fs-9 ml-2"></i
-        ></a>
-      </div>
-      <!-- Grid column -->
+      <p class="text-muted text-clip-2">
+        {{data?.description}}
+      </p>
+      <button class="btn btn-outline-primary mx-0" [routerLink]="[currentUrl, data.id]">Chi tiết <i
+          class="fas fa-arrow-right fs-9 ml-2"></i></button>
     </div>
-    <!-- Grid row -->
-
-    <!-- Grid row -->
-    <div class="row">
-      <!-- Grid column -->
-      <div class="col-lg-5 col-md-12 mb-lg-0 mb-4">
-        <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-          <img
-            class="img-fluid"
-            src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg"
-            alt="Sample image"
-          />
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-lg-7 col-md-6 mb-md-0 mb-4 mt-xl-4">
-        <h3 class="font-weight-normal mb-4">
-          Convert your visitors to real customers
-        </h3>
-        <p class="text-muted">
-          Option as can distributors. And to suppliers, given a copy the
-          horrible arrange yes, we had hundreds leave was more which a I the
-          king's had the so soon throughout in necessary which at way did phase
-          a young written, descriptions, late uninspired, to times owner
-          themselves them. Get sported uninspired, the a box to an to but on
-          been the succeed have couldn't set.
-        </p>
-        <a class="btn btn-outline-primary mx-0" href="#"
-          >Chi tiết <i class="fas fa-arrow-right fs-9 ml-2"></i
-        ></a>
-      </div>
-      <!-- Grid column -->
-    </div>
-    <!-- Grid row -->
-
-    <!-- paginator -->
-    <nav
-      class="d-flex justify-content-center mt-5"
-      aria-label="Page navigation example"
-    >
-      <ul class="pagination pagination-circle pg-blue">
-        <li class="page-item disabled"><a class="page-link">First</a></li>
-        <li class="page-item disabled">
-          <a class="page-link" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item active"><a class="page-link">1</a></li>
-        <li class="page-item"><a class="page-link">2</a></li>
-        <li class="page-item"><a class="page-link">3</a></li>
-        <li class="page-item">
-          <a class="page-link" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link">Last</a></li>
-      </ul>
-    </nav>
-  </section>
-  <!--Section: Content-->
-</main>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+</div>
+<!--Section: Content-->

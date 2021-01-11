@@ -1,59 +1,11 @@
-<app-jumbotron></app-jumbotron>
+<app-jumbotron>
+  <h5 class="h5 orange-text"><i class="fas fa-building"></i> Giới thiệu</h5>
+  <h2 class="card-title h2 my-4 py-2">Về chúng tôi</h2>
+</app-jumbotron>
 <!-- main -->
 <main>
   <section class="container">
-    <h2 class="font-weight-bold mb-4">
-      Sứ Mệnh, Tầm Nhìn và Giá Trị Cốt Lõi
-    </h2>
-    <div class="text-center">
-      <img src="https://pcccanbinh.com.vn/uploads/images/2020/07/695x348-1593683643-single_news1-tamnhinsumenh.jpg"
-        alt="">
-    </div>
-    <strong class="mt-4 d-inline-block">Sứ Mệnh</strong>
-    <p>Taiducwindow sinh ra để làm những cánh cửa hạnh phúc và phục vụ xã hội dựa trên 3 gốc rễ Đạo Đức + Trí
-      Tuệ +
-      Nghị Lực</p>
-    <strong class="d-inline-block">Sứ Mệnh</strong>
-    <p>Giá trị cốt lõi của Taiducwindow dựa trên: Kỹ Luật, Trung Thực, Cống Hiến, Yêu Thương</p>
-    <p><span class="text-danger">Cống Hiến:</span> Đội ngũ đồng sự Taiducwindow.vn thật hiểu sinh ra là để phụng
-      sự vô
-      điều kiện cho cuộc đời, luôn
-      sáng tạo xây dựng đội ngũ - công nghệ sản xuất - giá trị phục vụ để Taiducwindow.vn tốt hơn mỗi ngày cho
-      mọi
-      khách hàng, cùng đưa Taiducwindow.vn góp phần đóng góp nhiều hơn cho sự phát triển tốt đẹp của xã hội.
-
-    </p>
-    <p><span class="text-danger">Kỹ Luật:</span> Đội ngũ đồng sự Taiducwindow luôn thực hiện kỹ luật với lời hứa
-      của
-      chính mình trên sứ mệnh của bản
-      thân và tổ chức. Đối sản phẩm, Taiducwindow sản xuất và lắp đặt trên qui trình kỹ thuật hiện đại với
-      quyết tâm
-      thực hiện kỹ luật cao để đảm bảo yêu cầu chất lượng tốt nhất. Đối với Khách hàng, Taiducwindow phục vụ
-      với
-      tinh thần kỹ luật trách nhiệm bằng cả tâm của từng nhân sự để đem lại cho Khách hàng dịch vụ và sản phẩm
-      tốt nhất.</p>
-    <p><span class="text-danger">Trung Thực:</span> Đội ngũ đồng sự Taiducwindow luôn hiểu trung thực với chính
-      mình,
-      với tổ chức, với khách hàng là
-      văn hóa gốc rể làm nên giá trị từng con người - sản phẩm - linh hồn của Taiducwindow.vn.
-    </p>
-
-    <p><span class="text-danger">Trung Thực:</span> Tập thể Taiducwindow.vn luôn ý thức được sáng tạo là sống
-      còn và
-      là sức bật lớn nhất của tổ chức.
-      Taiducwindow.vn luôn cập nhật công nghệ sản xuất mới, học hỏi và tư duy đỗi mới để kiến tạo những sản
-      phẩm –
-      tác phẩm công trình chất lượng với độ thẩm mỹ cao. Taiducwindow.vn luôn rèn luyện học tập phát triển
-      phương
-      thức phục vụ khách hàng tốt nhất có thể.
-
-    </p>
-
-    <strong>Tầm Nhìn</strong>
-    <p>Trong năm 2021 Taiducwindow.vn trở thành công ty cửa đầu tiên mà mọi người làm ở đó cảm thấy hạnh phúc
-      nhất thị
-      trường. Năm 2022 trở đi Taiducwindow tiếp tục khẳng định vị trí dẫn đầu về doanh nghiệp có chỉ số hạnh
-      phúc
-      cao và chia sẽ sản phẩm cửa hạnh phúc đến mọi nhà.</p>
+    <h2 class="font-weight-bold mb-4">{{informationIntroduce?.description}}</h2>
+    <markdown [data]="informationIntroduce?.body"></markdown>
   </section>
 </main>

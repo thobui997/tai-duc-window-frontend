@@ -7,28 +7,28 @@ const routes: Routes = [
   {
     path: 'tin-tuc-trong-nganh',
     children: [
-      { path: ':slug', component: ArticleDetailComponent },
+      { path: ':id', component: ArticleDetailComponent },
       { path: '', component: NewsComponent },
     ],
   },
   {
     path: 'bao-gia-cua-nhom',
     children: [
-      { path: ':slug', component: ArticleDetailComponent },
+      { path: ':id', component: ArticleDetailComponent },
       { path: '', component: NewsComponent },
     ],
   },
   {
     path: 'bao-gia-cua-cuon',
     children: [
-      { path: ':slug', component: ArticleDetailComponent },
+      { path: ':id', component: ArticleDetailComponent },
       { path: '', component: NewsComponent },
     ],
   },
   {
     path: 'bao-gia-cua-kinh-cuong-luc',
     children: [
-      { path: ':slug', component: ArticleDetailComponent },
+      { path: ':id', component: ArticleDetailComponent },
       { path: '', component: NewsComponent },
     ],
   },

@@ -7,25 +7,25 @@
       <!-- Grid column -->
       <div class="col-md-6 mt-md-0 mt-3">
         <!-- Content -->
-        <h5 class="text-uppercase">CÔNG TY TNHH TMDV TÀI ĐỨC WINDOW</h5>
-        <p>Nhà cung cấp tổng thể các thế hệ cửa cao cấp</p>
+        <h5 class="text-uppercase">{{contact?.company}}</h5>
+        <p>{{contact?.description}}</p>
         <ul class="list-unstyled">
           <li>
             <p>
               <i class="fas fa-map-marker"></i>
-              <span class="ml-3">89/1 đường TX13, phường Thạnh Xuân, quận 12, HCM</span>
+              <span class="ml-3">{{contact?.address}}</span>
             </p>
           </li>
           <li class="my-3">
             <p>
               <i class="fas fa-phone"></i>
-              <span class="ml-3">0984574168</span>
+              <span class="ml-3">{{contact?.phone}}</span>
             </p>
           </li>
           <li>
             <p>
               <i class="fas fa-envelope"></i>
-              <span class="ml-3">taiducwindow@gmail.com</span>
+              <span class="ml-3">{{contact?.email}}</span>
             </p>
           </li>
         </ul>
@@ -41,22 +41,22 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Trang chủ</a>
+            <a routerLink="/home">Trang chủ</a>
           </li>
           <li>
-            <a href="#!">Sản phẩm</a>
+            <a routerLink="/product">Sản phẩm</a>
           </li>
           <li>
-            <a href="#!">Tư vấn</a>
+            <a routerLink="/advisory/goc-tu-van">Tư vấn</a>
           </li>
           <li>
-            <a href="#!">Tin Tức</a>
+            <a routerLink="/news/tin-tuc-trong-nganh">Tin Tức</a>
           </li>
           <li>
-            <a href="#!">Giới thiệu</a>
+            <a routerLink="/introduce">Giới thiệu</a>
           </li>
           <li>
-            <a href="#!">Liên hệ</a>
+            <a routerLink="/contact">Liên hệ</a>
           </li>
         </ul>
       </div>
@@ -67,10 +67,10 @@
         <!-- Links -->
         <h5 class="text-uppercase">Fanpage</h5>
 
-        <div class="fb-page" data-href="https://www.facebook.com/Test-for-Web-100803098603690" data-height="300"
-          data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-          <blockquote cite="https://www.facebook.com/Test-for-Web-100803098603690" class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/Test-for-Web-100803098603690">Test for Web</a>
+        <div class="fb-page" [attr.data-href]="contact?.facebook" data-height="300" data-small-header="false"
+          data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <blockquote [attr.cite]="contact?.facebook" class="fb-xfbml-parse-ignore">
+            <a [href]="contact?.facebook">Test for Web</a>
           </blockquote>
         </div>
       </div>

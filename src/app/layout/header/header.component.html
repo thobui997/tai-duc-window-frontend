@@ -56,17 +56,17 @@
 
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item">
-        <a class="nav-link">
+        <a class="nav-link" target="_blank" [href]="contact?.facebook ? contact.facebook : '#'">
           <mdb-icon fab icon="facebook-square"></mdb-icon>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">
+        <a class="nav-link" target="_blank" [href]="contact?.youtube ? contact.youtube : '#'">
           <mdb-icon fab icon="youtube"></mdb-icon>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">
+        <a class="nav-link" target="_blank" [href]="contact?.linkedin ? contact.linkedin : '#'">
           <mdb-icon fab icon="linkedin"></mdb-icon>
         </a>
       </li>

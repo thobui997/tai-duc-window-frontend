@@ -7,21 +7,21 @@ const routes: Routes = [
   {
     path: 'goc-tu-van',
     children: [
-      { path: ':slug', component: ArticleDetailComponent },
+      { path: ':id', component: ArticleDetailComponent },
       { path: '', component: AdvisoryComponent },
     ],
   },
   {
     path: 'kien-thuc',
     children: [
-      { path: ':slug', component: ArticleDetailComponent },
+      { path: ':id', component: ArticleDetailComponent },
       { path: '', component: AdvisoryComponent },
     ],
   },
   {
     path: 'tin-cong-trinh',
     children: [
-      { path: ':slug', component: ArticleDetailComponent },
+      { path: ':id', component: ArticleDetailComponent },
       { path: '', component: AdvisoryComponent },
     ],
   },
