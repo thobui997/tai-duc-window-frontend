@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="text-center section-title">Sản Phẩm</h2>
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4" *ngFor="let product of products">
+      <!-- Card -->
+      <div class="card">
+        <!-- Card image -->
+        <div class="view overlay zoom">
+          <img class="card-img-top" [src]="product.avatar.url"
+               alt="Card image cap">
+          <a [routerLink]="['/product/detail', product.id]">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body">
+          <!-- Title -->
+          <h4 class="card-title">{{product.name}}</h4>
+          <hr>
+          <!-- Text -->
+          <p class="card-text text-clip">{{product.description}}</p>
+          <!-- Link -->
+          <a [routerLink]="['/product/detail', product.id]" class="black-text d-flex justify-content-end">
+            <span>Chi Tiết <i class="fas fa-angle-double-right"></i></span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

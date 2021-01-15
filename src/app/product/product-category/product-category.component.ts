@@ -5,15 +5,12 @@ import { pluck, switchMap } from 'rxjs/operators';
 import { ProductModel } from '../../api/product/product.model';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css'],
+  selector: 'app-product-category',
+  templateUrl: './product-category.component.html',
+  styleUrls: ['./product-category.component.css'],
 })
-export class ProductDetailComponent implements OnInit {
-  productDetail: ProductModel;
-  config: ConfigTab = {
-    type: 'information',
-  };
+export class ProductCategoryComponent implements OnInit {
+  products: ProductModel[];
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
@@ -23,19 +20,10 @@ export class ProductDetailComponent implements OnInit {
     this.route.params
       .pipe(
         pluck('id'),
-        switchMap((id) => this.productService.getProductById(id))
+        switchMap((id) => this.productService.getCategoryById(id))
       )
       .subscribe((data) => {
-        this.productDetail = data;
-        console.log(this.productDetail);
+        this.products = data.products;
       });
   }
-
-  selectedTab(type: string): void {
-    this.config = { type };
-  }
-}
-
-interface ConfigTab {
-  type: string;
 }
