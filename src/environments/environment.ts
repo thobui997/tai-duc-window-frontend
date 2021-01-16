@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  api_url: 'http://localhost:1337',
+  api_url: 'https://taiducwindow.herokuapp.com',
   production: false
 };
 
