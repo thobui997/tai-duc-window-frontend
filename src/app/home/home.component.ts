@@ -1,4 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { IntroduceService } from '../api/introduce/introduce.service';
+import { IntroduceModel } from '../api/introduce/introduce.model';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { AdvisoriesService } from '../api/advisories/advisories.service';
+import { forkJoin } from 'rxjs';
+import {
+  Advisories,
+  BannerModel,
+  Image,
+} from '../api/advisories/advisories.model';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -28,8 +39,34 @@ export class HomeComponent implements OnInit {
         'Với nhà xưởng và máy móc hiện đại, Taiducwindow.com đảm bảo khả năng sản xuất các hệ cửa cao cấp đúng quy trình, kỹ thuật và độ thậm mỹ cao, tiến độ tốt, sản lượng lớn.',
     },
   ];
+  introduce: IntroduceModel;
+  urlSafe: SafeResourceUrl;
+  news: Advisories[];
+  contructionsNews: Advisories[];
+  banner: BannerModel;
 
-  constructor() {}
+  constructor(
+    private sanitizer: DomSanitizer,
+    private introduceService: IntroduceService,
+    private advisoriesService: AdvisoriesService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.introduceService.getInformationOfIntroduce().subscribe((data) => {
+      this.introduce = data;
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(
+        this.introduce?.youtubeId
+      );
+    });
+
+    forkJoin([
+      this.advisoriesService.getBanner(),
+      this.advisoriesService.getAllNews(),
+      this.advisoriesService.getAllAdvisoryContruction(),
+    ])
+      .pipe(take(6))
+      .subscribe((data) => {
+        [this.banner, this.news, this.contructionsNews] = data;
+      });
+  }
 }

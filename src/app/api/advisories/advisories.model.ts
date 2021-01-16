@@ -9,4 +9,14 @@ export interface Advisories {
 
 export interface Image {
   url: string;
+  name: string;
+  formats: {
+    thumbnail: {
+      url: string;
+    };
+  };
+}
+
+export interface BannerModel {
+  images: Image[];
 }

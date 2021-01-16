@@ -6,28 +6,36 @@
       <div class="card">
         <!-- Card image -->
         <div class="view overlay zoom">
-          <img class="card-img-top" [src]="product.avatar.url"
-               alt="Card image cap">
-          <a [routerLink]="['/product/detail', product.id]">
+          <img
+            style="height: 180px !important;"
+            class="card-img-top"
+            [src]="product?.avatar.url"
+            alt="Card image cap"
+          />
+          <a [routerLink]="['/product/detail', product?.id]">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
 
         <!-- Card content -->
-        <div class="card-body">
+        <div class="card-body" style="height: 262px !important;">
           <!-- Title -->
-          <h4 class="card-title">{{product.name}}</h4>
-          <hr>
+          <h4 class="card-title">{{ product?.name }}</h4>
+          <hr />
           <!-- Text -->
-          <p class="card-text text-clip">{{product.description}}</p>
+          <p class="card-text text-clip">{{ product?.description }}</p>
           <!-- Link -->
-          <a [routerLink]="['/product/detail', product.id]" class="black-text d-flex justify-content-end">
+          <a
+            [routerLink]="['/product/detail', product?.id]"
+            class="black-text d-flex justify-content-end"
+          >
             <span>Chi Tiết <i class="fas fa-angle-double-right"></i></span>
           </a>
-
         </div>
-
       </div>
     </div>
   </div>
+  <ng-container *ngIf="products?.length === 0">
+    <h3 class="text-center">Không có sản phẩm nào</h3>
+  </ng-container>
 </div>

@@ -1,16 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../api/product/product.service';
+import { ProductModel } from '../../api/product/product.model';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-
-  @Input() categoryId: string;
-  constructor() { }
+  products: ProductModel[];
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
+    this.productService.getAllProduct().subscribe((data) => {
+      this.products = data;
+    });
   }
-
 }

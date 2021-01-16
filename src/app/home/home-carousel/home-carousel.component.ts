@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Image } from '../../api/advisories/advisories.model';
 
 @Component({
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css'],
+  selector: 'app-home-carousel',
+  templateUrl: './home-carousel.component.html',
+  styleUrls: ['./home-carousel.component.css'],
 })
-export class CarouselComponent implements OnInit {
+export class HomeCarouselComponent implements OnInit {
   @Input() images: Image[];
   constructor() {}
 

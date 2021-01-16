@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-lg-6">
           <!--Carousel Wrapper-->
-          <app-carousel></app-carousel>
+          <app-carousel [images]="productDetail?.images"></app-carousel>
           <!--/.Carousel Wrapper-->
         </div>
 
@@ -58,7 +58,7 @@
           <ng-container *ngIf="config?.type === 'description'">
             <div class="tab-pane text-left fade show active">
               <markdown
-                [data]="productDetail?.categories[0].description"
+                [data]="productDetail?.categories[0]?.description"
               ></markdown>
             </div>
           </ng-container>
