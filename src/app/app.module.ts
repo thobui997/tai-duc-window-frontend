@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from 'ngx-progressbar/http';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -20,6 +22,12 @@ import { HeaderComponent } from './layout/header/header.component';
     MarkdownModule.forRoot(),
     AppRoutingModule,
     HomeModule,
+    NgProgressModule.withConfig({
+      min: 20,
+      fixed: true,
+      color: 'white',
+    }),
+    NgProgressHttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
