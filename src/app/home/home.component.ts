@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IntroduceService } from '../api/introduce/introduce.service';
-import { IntroduceModel } from '../api/introduce/introduce.model';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { AdvisoriesService } from '../api/advisories/advisories.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { forkJoin } from 'rxjs';
-import {
-  Advisories,
-  BannerModel,
-  Image,
-} from '../api/advisories/advisories.model';
 import { take } from 'rxjs/operators';
+import { Advisories, BannerModel } from '../api/advisories/advisories.model';
+import { AdvisoriesService } from '../api/advisories/advisories.service';
+import { IntroduceModel } from '../api/introduce/introduce.model';
+import { IntroduceService } from '../api/introduce/introduce.service';
 
 @Component({
   selector: 'app-home',
@@ -61,12 +57,10 @@ export class HomeComponent implements OnInit {
 
     forkJoin([
       this.advisoriesService.getBanner(),
-      this.advisoriesService.getAllNews(),
-      this.advisoriesService.getAllAdvisoryContruction(),
-    ])
-      .pipe(take(6))
-      .subscribe((data) => {
-        [this.banner, this.news, this.contructionsNews] = data;
-      });
+      this.advisoriesService.getAllNews().pipe(take(6)),
+      this.advisoriesService.getAllAdvisoryContruction().pipe(take(6)),
+    ]).subscribe((data) => {
+      [this.banner, this.news, this.contructionsNews] = data;
+    });
   }
 }

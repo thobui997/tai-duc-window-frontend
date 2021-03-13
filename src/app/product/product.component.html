@@ -10,13 +10,15 @@
         <div class="col-md-3">
           <h4 class="mb-4">Danh mục sản phẩm</h4>
           <div class="text-muted small text-uppercase mb-5">
-            <p *ngFor="let category of categories" class="mb-3">
-              <a
-                [routerLink]="['/product/category', category.id]"
-                class="card-link-secondary text-uppercase"
-                >{{ category.name }}</a
-              >
-            </p>
+            <ng-container *ngIf="categories$ | async as categories">
+              <p *ngFor="let category of categories" class="mb-3">
+                <a
+                  [routerLink]="['/product/category', category.id]"
+                  class="card-link-secondary text-uppercase"
+                  >{{ category.name }}</a
+                >
+              </p></ng-container
+            >
           </div>
         </div>
 
