@@ -7,68 +7,69 @@
     <!--Section: Content-->
     <div class="text-center">
       <!-- Section heading -->
-      <h3 class="font-weight-bold mb-5">Chi Tiết Sản Phẩm</h3>
-      <div class="row">
-        <div class="col-lg-6">
-          <!--Carousel Wrapper-->
-          <app-carousel [images]="productDetail?.images"></app-carousel>
-          <!--/.Carousel Wrapper-->
-        </div>
+      <ng-container *ngIf="productDetail$ | async as productDetail">
+        <h3 class="font-weight-bold mb-5">Chi Tiết Sản Phẩm</h3>
+        <div class="row">
+          <div class="col-lg-6">
+            <!--Carousel Wrapper-->
+            <app-carousel [images]="productDetail?.images"></app-carousel>
+            <!--/.Carousel Wrapper-->
+          </div>
 
-        <div class="col-lg-6 text-center text-md-left">
-          <h2
-            class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4"
-          >
-            {{ productDetail?.name }}
-          </h2>
-          <div class="font-weight-normal">
-            <p class="ml-xl-0 ml-4">
-              {{ productDetail?.description }}
-            </p>
-            <hr />
-            <div class="mt-3">
-              <a routerLink="/contact" class="btn btn-primary btn-rounded">
-                <i class="fas fa-id-badge mr-2"></i> Liên Hệ
-              </a>
+          <div class="col-lg-6 text-center text-md-left">
+            <h2
+              class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4"
+            >
+              {{ productDetail?.name }}
+            </h2>
+            <div class="font-weight-normal">
+              <p class="ml-xl-0 ml-4">
+                {{ productDetail?.description }}
+              </p>
+              <hr />
+              <div class="mt-3">
+                <a routerLink="/contact" class="btn btn-primary btn-rounded">
+                  <i class="fas fa-id-badge mr-2"></i> Liên Hệ
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="mt-5">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [ngClass]="{ active: config.type === 'description' }"
-              (click)="selectedTab('description')"
-              >Mô tả</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [ngClass]="{ active: config.type === 'information' }"
-              (click)="selectedTab('information')"
-              >Thông tin sản phẩm</a
-            >
-          </li>
-        </ul>
-        <div class="tab-content pt-5">
-          <ng-container *ngIf="config?.type === 'description'">
-            <div class="tab-pane text-left fade show active">
-              <markdown
-                [data]="productDetail?.categories[0]?.description"
-              ></markdown>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="config?.type === 'information'">
-            <div class="tab-pane text-left show active fade">
-              <markdown [data]="productDetail?.body"></markdown>
-            </div>
-          </ng-container>
+        <div class="mt-5">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [ngClass]="{ active: config.type === 'description' }"
+                (click)="selectedTab('description')"
+                >Mô tả</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [ngClass]="{ active: config.type === 'information' }"
+                (click)="selectedTab('information')"
+                >Thông tin sản phẩm</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content pt-5">
+            <ng-container *ngIf="config?.type === 'description'">
+              <div class="tab-pane text-left fade show active">
+                <markdown
+                  [data]="productDetail?.categories[0]?.description"
+                ></markdown>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="config?.type === 'information'">
+              <div class="tab-pane text-left show active fade">
+                <markdown [data]="productDetail?.body"></markdown>
+              </div>
+            </ng-container>
+          </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   </section>
 </main>

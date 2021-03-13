@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../api/product/product.service';
-import { pluck, switchMap } from 'rxjs/operators';
+import { pluck, shareReplay, switchMap } from 'rxjs/operators';
 import { ProductModel } from '../../api/product/product.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,7 +11,7 @@ import { ProductModel } from '../../api/product/product.model';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
-  productDetail: ProductModel;
+  productDetail$: Observable<ProductModel>;
   config: ConfigTab = {
     type: 'information',
   };
@@ -20,14 +21,12 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params
-      .pipe(
-        pluck('id'),
-        switchMap((id) => this.productService.getProductById(id))
+    this.productDetail$ = this.route.params.pipe(
+      pluck('id'),
+      switchMap((id) =>
+        this.productService.getProductById(id).pipe(shareReplay())
       )
-      .subscribe((data) => {
-        this.productDetail = data;
-      });
+    );
   }
 
   selectedTab(type: string): void {
