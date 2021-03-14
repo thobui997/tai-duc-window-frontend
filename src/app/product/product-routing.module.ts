@@ -3,7 +3,7 @@ import { ProductComponent } from './product.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductListComponent } from '../shared/product-list/product-list.component';
-import {ProductCategoryComponent} from './product-category/product-category.component';
+import { ProductCategoryComponent } from './product-category/product-category.component';
 
 const routes: Routes = [
   {
@@ -12,15 +12,21 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ProductListComponent
+        component: ProductListComponent,
+        data: { title: 'Sản Phẩm' },
       },
       {
         path: 'category/:id',
         component: ProductCategoryComponent,
+        data: { title: 'Sản Phẩm' },
       },
     ],
   },
-  { path: 'detail/:id', component: ProductDetailComponent },
+  {
+    path: 'detail/:id',
+    component: ProductDetailComponent,
+    data: { title: 'Sản Phẩm' },
+  },
 ];
 
 @NgModule({

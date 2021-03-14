@@ -1,0 +1,9 @@
+.category-active {
+  background-color: #3f729b ;
+  padding: 5px;
+  color: aliceblue !important;
+}
+
+a {
+  text-decoration: none;
+}

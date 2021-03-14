@@ -13,7 +13,8 @@
             <ng-container *ngIf="categories$ | async as categories">
               <p *ngFor="let category of categories" class="mb-3">
                 <a
-                  [routerLink]="['/product/category', category.id]"
+                  (click)="navigateCategory(category.id)"
+                  [ngClass]="{ 'category-active': category.id === idCategory }"
                   class="card-link-secondary text-uppercase"
                   >{{ category.name }}</a
                 >
