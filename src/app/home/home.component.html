@@ -4,92 +4,37 @@
   <section>
     <div class="container">
       <h2 class="text-center section-title">Dịch Vụ Của Chúng Tôi</h2>
-      <div class="row wow fadeInUp">
-        <div class="col-md-6 col-xl-3 mb-4 mb-xl-0">
-          <mdb-card class="h-100 text-center bg-success text-white">
+      <div class="row">
+        <div class="col-md-6 col-xl-3 mb-4 mb-xl-0" *ngFor="let item of ourService; index as i">
+          <mdb-card [ngClass]="{'bg-success': i === 0, 'deep-purple': i === 2}" class="h-100 text-center bg-success text-white">
             <mdb-card-body>
-              <p class="mt-4 pt-2"><i class="fas fa-wrench fa-4x"></i></p>
-              <h5 class="font-weight-normal my-4 py-2">
-                {{ ourService[0].title }}
+              <img [src]="item.image" style="height: 150px;">
+              <h5 class="font-weight-normal my-4 py-2" [ngClass]="{'dark-grey-text': i === 1 || i ===3}">
+                {{ item.title }}
               </h5>
-              <p class="mb-4">
-                {{ ourService[0].body }}
+              <p class="mb-4" [ngClass]="{'text-muted': i === 1 || i ===3}">
+                {{ item.body }}
               </p>
             </mdb-card-body>
           </mdb-card>
         </div>
 
-        <div class="col-md-6 col-xl-3 mb-4 mb-xl-0">
-          <mdb-card class="h-100 text-center">
-            <mdb-card-body>
-              <p class="mt-4 pt-2">
-                <i class="fas fa-pencil-ruler fa-4x grey-text"></i>
-              </p>
-              <h5 class="font-weight-normal dark-grey-text my-4 py-2">
-                {{ ourService[1].title }}
-              </h5>
-              <p class="text-muted mb-4">{{ ourService[1].body }}</p>
-            </mdb-card-body>
-          </mdb-card>
-        </div>
 
-        <div class="col-md-6 col-xl-3 mb-4 mb-xl-0">
-          <mdb-card class="h-100 text-center deep-purple lighten-1 text-white">
-            <mdb-card-body>
-              <p class="mt-4 pt-2"><i class="fas fa-chart-line fa-4x"></i></p>
-              <h5 class="font-weight-normal my-4 py-2">
-                {{ ourService[2].title }}
-              </h5>
-              <p class="mb-4">{{ ourService[2].body }}</p>
-            </mdb-card-body>
-          </mdb-card>
-        </div>
-
-        <div class="col-md-6 col-xl-3 mb-4 mb-xl-0">
-          <mdb-card class="h-100 text-center">
-            <mdb-card-body>
-              <p class="mt-4 pt-2">
-                <i class="fas fa-bullhorn fa-4x grey-text"></i>
-              </p>
-              <h5 class="font-weight-normal my-4 py-2 dark-grey-text">
-                {{ ourService[3].title }}
-              </h5>
-              <p class="text-muted mb-4">{{ ourService[3].body }}</p>
-            </mdb-card-body>
-          </mdb-card>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Introduce -->
-  <section class="bg-primary introduce">
+  <section class="introduce">
     <div class="container">
       <!-- Modal -->
-      <div
-        mdbModal
-        #frame="mdbModal"
-        class="modal fade"
-        id="frameModalTop"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="myModalLabel"
-        aria-hidden="true"
-      >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
+      <div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-              <iframe
-                id="player"
-                class="embed-responsive-item"
-                [src]="urlSafe"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-              ></iframe>
+              <iframe id="player" class="embed-responsive-item" [src]="urlSafe" frameborder="0"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -98,20 +43,11 @@
       <div class="row no-gutters">
         <div class="col-md-6 order-md-2">
           <div class="view">
-            <img
-              class="img-fluid"
-              [src]="introduce?.youtubeAvatar.url"
-              [alt]="introduce?.youtubeAvatar.name"
-            />
+            <img style="height: 350px; width: 100%;" class="img-fluid" [src]="introduce?.youtubeAvatar.url"
+              [alt]="introduce?.youtubeAvatar.name" />
             <div class="mask flex-center rgba-black-light">
-              <a
-                data-toggle="modal"
-                data-target="#basicExample"
-                (click)="frame.show()"
-                mdbWavesEffect
-                class="btn-floating btn-danger btn-lg"
-                ><i class="fas fa-play"></i
-              ></a>
+              <a data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect
+                class="btn-floating btn-danger btn-lg"><i class="fas fa-play"></i></a>
             </div>
           </div>
         </div>
@@ -139,21 +75,12 @@
           <ul class="list-unstyled">
             <li class="media zoom mb-2" *ngFor="let new of news">
               <a [routerLink]="['/news/tin-tuc-trong-nganh', new?.id]">
-                <img
-                  width="100"
-                  height="100"
-                  class="d-flex mr-3 img-thumbnail"
-                  [src]="new?.image.formats.thumbnail.url"
-                  [alt]="new?.image.name"
-                />
+                <img width="100" height="100" class="d-flex mr-3 img-thumbnail" [src]="new?.image.formats.thumbnail.url"
+                  [alt]="new?.image.name" />
               </a>
               <div class="media-body">
                 <h5 class="mt-0 mb-1 font-weight-bold">
-                  <a
-                    class="text-dark"
-                    [routerLink]="['/news/tin-tuc-trong-nganh', new?.id]"
-                    >{{ new?.title }}</a
-                  >
+                  <a class="text-dark" [routerLink]="['/news/tin-tuc-trong-nganh', new?.id]">{{ new?.title }}</a>
                 </h5>
                 <p class="text-clip-2 text-muted">
                   {{ new?.description }}
@@ -172,14 +99,8 @@
               <div class="card h-100">
                 <!--Card image-->
                 <div class="view overlay">
-                  <img
-                    class="card-img-top"
-                    [src]="contruction?.image.url"
-                    [alt]="contruction?.image.name"
-                  />
-                  <a
-                    [routerLink]="['/advisory/tin-cong-trinh', contruction?.id]"
-                  >
+                  <img class="card-img-top" [src]="contruction?.image.url" [alt]="contruction?.image.name" />
+                  <a [routerLink]="['/advisory/tin-cong-trinh', contruction?.id]">
                     <div class="mask rgba-white-slight"></div>
                   </a>
                 </div>
