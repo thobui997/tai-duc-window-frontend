@@ -1,7 +1,9 @@
 .card {
-    background-image: url(https://mdbootstrap.com/img/Photos/Others/forest2.jpg);
+    background-image: url('../../../assets/images/gioi thieu.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-size: cover;
     border: none !important;
     border-radius: 0 !important;
+    height: 300px;
 }

@@ -15,7 +15,7 @@ import { IntroduceService } from '../api/introduce/introduce.service';
 export class HomeComponent implements OnInit {
   ourService = [
     {
-      image: '../../assets/images/vận chuyển.jpg',
+      image: '../../assets/images/thi cong.jpg',
       title: 'Thi công lắp đặt',
       body:
         'Với đội ngũ nhiều năm kinh nghiệm chuyên lắp đặt các hệ cửa cao cấp như cửa Hyundai Hàn Quốc, cửa nhôm Xingfa, cửa nhôm Schuco, cửa nhôm PMI, cửa nhôm Topalu, cửa nhôm Germany, cửa nhôm JMA, Cửa nhôm cầu cách nhiệt, Cửa nhôm PMA, Cửa nhựa lõi thép... Tài Đức luôn đảm bảo tốt tiến độ, kỹ thuật và thẩm mỹ cao.',
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
         'Trong Xây dựng nói chung và đặc biệt lắp đặt các loại cửa làm thế nào để có thể ngăn chặn và làm giảm sự kích thích không mong muốn từ bên ngoài, lấy năng lượng sống, thải ra khí cũ và tiếp nhận không khí mới, Do đó phong thuỷ trong vấn đề lắp đặt cửa rất quan trọng đối với các công trình hay ngôi nhà, không nên bỏ qua.',
     },
     {
-      image: '../../assets/images/hợp tác.jpg',
+      image: '../../assets/images/vận chuyển.jpg',
       title: 'Phân phối nhôm và phụ kiện',
       body:
         'Tài Đức chuyên cung cấp các Profile nhôm cao cấp như Hyundai, Xingfa, Schuco, JMA, các loại phụ kiện cao cấp như Cmech, Kinlong, Ace (Hàn Quốc) , các hệ cửa tự động.',
