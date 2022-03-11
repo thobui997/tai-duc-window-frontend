@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class ProductService {
-  u;
+
   constructor(private httpClient: HttpClient) {}
 
   getCategoryById(id: string): Observable<Category> {

@@ -11,11 +11,21 @@
           <h4 class="mb-4">Danh mục sản phẩm</h4>
           <div class="text-muted small text-uppercase mb-5">
             <ng-container *ngIf="categories$ | async as categories">
+              <p>
+                <a
+                  class="card-link-secondary"
+                  routerLink="/product"
+                  routerLinkActive="category-active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  >Tất cả sản phẩm</a
+                >
+              </p>
               <p *ngFor="let category of categories" class="mb-3">
                 <a
-                  (click)="navigateCategory(category.id)"
-                  [ngClass]="{ 'category-active': category.id === idCategory }"
-                  class="card-link-secondary text-uppercase"
+                  [routerLink]="['/product/category', category.id]"
+                  routerLinkActive="category-active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  class="card-link-secondary"
                   >{{ category.name }}</a
                 >
               </p></ng-container
