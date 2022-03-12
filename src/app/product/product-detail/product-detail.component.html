@@ -11,16 +11,14 @@
         <h3 class="font-weight-bold mb-5">Chi Tiết Sản Phẩm</h3>
         <div class="row">
           <div class="col-lg-6">
-            <!--Carousel Wrapper-->
-            <app-carousel [images]="productDetail?.images"></app-carousel>
-            <!--/.Carousel Wrapper-->
+            <img [src]="productDetail?.avatar.url" style="height: 400px">
           </div>
 
           <div class="col-lg-6 text-center text-md-left">
             <h2
               class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4"
             >
-              {{ productDetail?.name }}
+              {{ productDetail?.name | lowercase | titlecase}}
             </h2>
             <div class="font-weight-normal">
               <p class="ml-xl-0 ml-4">

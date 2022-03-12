@@ -1,11 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ContactService } from '../api/contacts/contact.service';
-import { Contact } from '../api/contacts/contact.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomerService } from '../api/customer/customer.service';
-import { CustomerModel } from '../api/customer/customer.model';
-import { pipe } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {ContactService} from '../api/contacts/contact.service';
+import {Contact} from '../api/contacts/contact.model';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CustomerService} from '../api/customer/customer.service';
+import {CustomerModel} from '../api/customer/customer.model';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact',
@@ -15,7 +14,8 @@ import { finalize } from 'rxjs/operators';
 export class ContactComponent implements OnInit {
   contact: Contact;
   contactForm: FormGroup;
-  @ViewChild('alert', { static: true }) alert: ElementRef;
+  isShowAlert = false;
+
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
@@ -46,20 +46,37 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  postInformationOfCustomer(): void {
+  // tslint:disable-next-line:typedef
+  get name() {
+    return this.contactForm.get('name');
+  }
+
+  // tslint:disable-next-line:typedef
+  get email() {
+    return this.contactForm.get('email');
+  }
+
+  // tslint:disable-next-line:typedef
+  get phone() {
+    return this.contactForm.get('phone');
+  }
+
+  // tslint:disable-next-line:typedef
+  get address() {
+    return this.contactForm.get('address');
+  }
+
+
+  sendInformationOfCustomer(): void {
     const body: CustomerModel = this.contactForm.getRawValue();
     this.customerService
       .postInformationCustomer(body)
       .pipe(
         finalize(() => {
           this.contactForm.reset();
-          this.alert.nativeElement.classList.add('show');
+          this.isShowAlert = true;
         })
       )
       .subscribe();
-  }
-
-  closeAlert(): void {
-    this.alert.nativeElement.classList.remove('show');
   }
 }

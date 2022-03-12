@@ -1,8 +1,8 @@
 <div class="container">
   <h2 class="text-center section-title">Sản Phẩm</h2>
-  <ng-container *ngIf="(products$ | async)?.length > 0; else noItem">
+  <ng-container *ngIf="products$ | async as products; else noItem">
     <div class="row row-cols-1 row-cols-md-3">
-      <div class="col mb-4" *ngFor="let product of products$ | async">
+      <div class="col mb-4" *ngFor="let product of products">
         <!-- Card -->
         <div class="card">
           <!-- Card image -->
@@ -21,8 +21,8 @@
           <!-- Card content -->
           <div class="card-body" style="height: 262px !important">
             <!-- Title -->
-            <h4 class="card-title text-clip-2">{{ product?.name }}</h4>
-            <hr />
+            <h4 class="card-title text-clip-2">{{ product?.name | lowercase | titlecase }}</h4>
+            <hr/>
             <!-- Text -->
             <p class="card-text text-clip">{{ product?.description }}</p>
             <!-- Link -->

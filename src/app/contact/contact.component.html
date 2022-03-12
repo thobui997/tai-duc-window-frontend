@@ -5,8 +5,8 @@
 
 <main>
   <section class="container mx-auto">
-    <div #alert class="alert alert-success alert-dismissible fade" role="alert">
-      <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+    <div [class.show]="isShowAlert" class="alert alert-success alert-dismissible fade" role="alert">
+      <button type="button" class="close" aria-label="Close" (click)="isShowAlert = false">
         <span aria-hidden="true">&times;</span>
       </button>
       Thông tin đã gửi thành công!
@@ -21,12 +21,13 @@
           <div class="col-lg-7">
             <form
               [formGroup]="contactForm"
-              (ngSubmit)="postInformationOfCustomer()"
+              (ngSubmit)="sendInformationOfCustomer()"
               class="card-body form"
             >
               <!-- Header -->
               <h3 class="mt-4">
-                <mdb-icon fas icon="envelope" class="pr-2"></mdb-icon>Liên hệ
+                <mdb-icon fas icon="envelope" class="pr-2"></mdb-icon>
+                Liên hệ
                 với chúng tôi:
               </h3>
 
@@ -45,16 +46,11 @@
                     <label for="form-contact-name" class="">Họ tên <span class="red-text">*</span></label>
                   </div>
                   <div
-                    *ngIf="
-                      contactForm.get('name').invalid &&
-                      contactForm.get('name').errors &&
-                      (contactForm.get('name').dirty ||
-                        contactForm.get('name').touched)
-                    "
+                    *ngIf="name.invalid && (name.dirty || name.touched)"
                   >
                     <small
                       class="red-text"
-                      *ngIf="contactForm.get('name').hasError('required')"
+                      *ngIf="name.hasError('required')"
                     >
                       Thông tin này là bắt buộc.
                     </small>
@@ -75,22 +71,17 @@
                     <label for="form-contact-email" class="">Email <span class="red-text">*</span></label>
                   </div>
                   <div
-                    *ngIf="
-                      contactForm.get('email').invalid &&
-                      contactForm.get('email').errors &&
-                      (contactForm.get('email').dirty ||
-                        contactForm.get('email').touched)
-                    "
+                    *ngIf="email.invalid && (email.dirty || email.touched)"
                   >
                     <small
                       class="red-text"
-                      *ngIf="contactForm.get('email').hasError('required')"
+                      *ngIf="email.hasError('required')"
                     >
                       Thông tin này là bắt buộc.
                     </small>
                     <small
                       class="red-text"
-                      *ngIf="contactForm.get('email').hasError('email')"
+                      *ngIf="email.hasError('email')"
                     >
                       Email không hợp lệ.
                     </small>
@@ -113,26 +104,21 @@
                       formControlName="phone"
                     />
                     <label for="form-contact-phone" class=""
-                      >Số điện thoại <span class="red-text">*</span></label
+                    >Số điện thoại <span class="red-text">*</span></label
                     >
                   </div>
                   <div
-                    *ngIf="
-                      contactForm.get('phone').invalid &&
-                      contactForm.get('phone').errors &&
-                      (contactForm.get('phone').dirty ||
-                        contactForm.get('phone').touched)
-                    "
+                    *ngIf="phone.invalid && (phone.dirty || phone.touched)"
                   >
                     <small
                       class="red-text"
-                      *ngIf="contactForm.get('phone').hasError('required')"
+                      *ngIf="phone.hasError('required')"
                     >
                       Thông tin này là bắt buộc.
                     </small>
                     <small
                       class="red-text"
-                      *ngIf="contactForm.get('phone').hasError('pattern')"
+                      *ngIf="phone.hasError('pattern')"
                     >
                       Số điện thoại không hợp lệ.
                     </small>
@@ -153,16 +139,11 @@
                     <label for="form-contact-company" class="">Địa chỉ <span class="red-text">*</span></label>
                   </div>
                   <div
-                    *ngIf="
-                      contactForm.get('address').invalid &&
-                      contactForm.get('address').errors &&
-                      (contactForm.get('address').dirty ||
-                        contactForm.get('address').touched)
-                    "
+                    *ngIf="address.invalid && (address.dirty || address.touched)"
                   >
                     <small
                       class="red-text"
-                      *ngIf="contactForm.get('address').hasError('required')"
+                      *ngIf="address.hasError('required')"
                     >
                       Thông tin này là bắt buộc.
                     </small>
@@ -194,7 +175,8 @@
                   [disabled]="contactForm.invalid"
                   class="btn btn-primary mt-3 ml-auto"
                 >
-                  Gửi <mdb-icon far icon="paper-plane"> </mdb-icon>
+                  Gửi
+                  <mdb-icon far icon="paper-plane"></mdb-icon>
                 </button>
                 <!-- Grid row -->
                 <!-- Grid column -->
@@ -218,17 +200,19 @@
                 <li>
                   <p>
                     <mdb-icon fas icon="phone" class="pr-2"></mdb-icon
-                    >{{ contact?.phone }}
+                    >
+                    {{ contact?.phone }}
                   </p>
                 </li>
                 <li>
                   <p>
                     <mdb-icon fas icon="envelope" class="pr-2"></mdb-icon
-                    >{{ contact?.email }}
+                    >
+                    {{ contact?.email }}
                   </p>
                 </li>
               </ul>
-              <hr class="hr-light my-4" />
+              <hr class="hr-light my-4"/>
               <ul class="list-inline text-center list-unstyled">
                 <li class="list-inline-item">
                   <a
@@ -245,7 +229,7 @@
                     target="_blank"
                     [href]="contact?.facebook ? contact?.linkedin : '#'"
                   >
-                    <mdb-icon fab icon="linkedin-in"> </mdb-icon>
+                    <mdb-icon fab icon="linkedin-in"></mdb-icon>
                   </a>
                 </li>
                 <li class="list-inline-item">
@@ -254,7 +238,7 @@
                     target="_blank"
                     [href]="contact?.facebook ? contact?.youtube : '#'"
                   >
-                    <mdb-icon fab icon="youtube"> </mdb-icon>
+                    <mdb-icon fab icon="youtube"></mdb-icon>
                   </a>
                 </li>
               </ul>

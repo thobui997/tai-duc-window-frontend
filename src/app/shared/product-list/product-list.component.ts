@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
-import { ProductModel } from '../../api/product/product.model';
-import { ProductService } from '../../api/product/product.service';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {ProductModel} from '../../api/product/product.model';
+import {ProductService} from '../../api/product/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,9 +10,11 @@ import { ProductService } from '../../api/product/product.service';
 })
 export class ProductListComponent implements OnInit {
   products$: Observable<ProductModel[]>;
-  constructor(private productService: ProductService) {}
+
+  constructor(private productService: ProductService) {
+  }
 
   ngOnInit(): void {
-    this.products$ = this.productService.getAllProduct().pipe(shareReplay());
+    this.products$ = this.productService.getAllProduct();
   }
 }

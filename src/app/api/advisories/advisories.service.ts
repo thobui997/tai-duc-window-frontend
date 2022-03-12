@@ -1,79 +1,37 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Advisories, BannerModel } from './advisories.model';
-import { environment } from '../../../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Advisories, BannerModel} from './advisories.model';
+import {environment} from '../../../environments/environment';
+
+const URL = {
+  '/advisory/kien-thuc': `${environment.api_url}/knowledges`,
+  '/advisory/tin-cong-trinh': `${environment.api_url}/contructions`,
+  '/advisory/goc-tu-van': `${environment.api_url}/advisories`,
+  '/news/tin-tuc-trong-nganh': `${environment.api_url}/industry-news`,
+  '/news/bao-gia-cua-nhom': `${environment.api_url}/aluminum-door-quotes`,
+  '/news/bao-gia-cua-cuon': `${environment.api_url}/rolling-door-quotes`,
+  '/news/bao-gia-cua-kinh-cuong-luc': `${environment.api_url}/glass-door-quotes`,
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdvisoriesService {
-  constructor(private httpClient: HttpClient) {}
-
-  getAllAdvisories(currentUrl: string): Observable<Advisories[]> {
-    switch (currentUrl) {
-      case '/advisory/kien-thuc':
-        return this.httpClient.get<Advisories[]>(
-          `${environment.api_url}/knowledges`
-        );
-      case '/advisory/tin-cong-trinh':
-        return this.httpClient.get<Advisories[]>(
-          `${environment.api_url}/contructions`
-        );
-      case '/advisory/goc-tu-van':
-        return this.httpClient.get<Advisories[]>(
-          `${environment.api_url}/advisories`
-        );
-      case '/news/tin-tuc-trong-nganh':
-        return this.httpClient.get<Advisories[]>(
-          `${environment.api_url}/industry-news`
-        );
-      case '/news/bao-gia-cua-nhom':
-        return this.httpClient.get<Advisories[]>(
-          `${environment.api_url}/aluminum-door-quotes`
-        );
-      case '/news/bao-gia-cua-cuon':
-        return this.httpClient.get<Advisories[]>(
-          `${environment.api_url}/rolling-door-quotes`
-        );
-      case '/news/bao-gia-cua-kinh-cuong-luc':
-        return this.httpClient.get<Advisories[]>(
-          `${environment.api_url}/glass-door-quotes`
-        );
-    }
+  constructor(private httpClient: HttpClient) {
   }
 
-  getAdvisoriesById(currentUrl, id: string): Observable<Advisories> {
-    switch (currentUrl) {
-      case `/advisory/kien-thuc/${id}`:
-        return this.httpClient.get<Advisories>(
-          `${environment.api_url}/knowledges/${id}`
-        );
-      case `/advisory/tin-cong-trinh/${id}`:
-        return this.httpClient.get<Advisories>(
-          `${environment.api_url}/contructions/${id}`
-        );
-      case `/advisory/goc-tu-van/${id}`:
-        return this.httpClient.get<Advisories>(
-          `${environment.api_url}/advisories/${id}`
-        );
-      case `/news/tin-tuc-trong-nganh/${id}`:
-        return this.httpClient.get<Advisories>(
-          `${environment.api_url}/industry-news/${id}`
-        );
-      case `/news/bao-gia-cua-nhom/${id}`:
-        return this.httpClient.get<Advisories>(
-          `${environment.api_url}/aluminum-door-quotes/${id}`
-        );
-      case `/news/bao-gia-cua-cuon/${id}`:
-        return this.httpClient.get<Advisories>(
-          `${environment.api_url}/rolling-door-quotes/${id}`
-        );
-      case `/news/bao-gia-cua-kinh-cuong-luc/${id}`:
-        return this.httpClient.get<Advisories>(
-          `${environment.api_url}/glass-door-quotes/${id}`
-        );
-    }
+  getUrl(urls): string {
+    return URL[urls];
+  }
+
+  getAllAdvisories(currentUrl: string): Observable<Advisories[]> {
+    return this.httpClient.get<Advisories[]>(this.getUrl(currentUrl));
+  }
+
+  getAdvisoriesById(currentUrl: string, id: string): Observable<Advisories> {
+    const transformUrl = currentUrl.split('/').filter(idParam => idParam !== id).join('/');
+    return this.httpClient.get<Advisories>(`${this.getUrl(transformUrl)}/${id}`);
   }
 
   getAllNews(): Observable<Advisories[]> {
