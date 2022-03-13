@@ -8,6 +8,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProductListComponent } from './product-list/product-list.component';
     JumbotronComponent,
     ArticleListComponent,
     ArticleDetailComponent,
+    SafeUrlPipe,
   ],
   imports: [CommonModule, MDBBootstrapModule.forRoot(), RouterModule, MarkdownModule.forChild()],
   exports: [
@@ -25,7 +27,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     MarkdownModule,
     JumbotronComponent,
     ArticleListComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    SafeUrlPipe
   ],
 })
 export class SharedModule {}

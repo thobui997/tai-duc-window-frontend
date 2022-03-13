@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SafeResourceUrl } from '@angular/platform-browser';
 import { forkJoin } from 'rxjs';
-import { take } from 'rxjs/operators';
 import { Advisories, BannerModel } from '../api/advisories/advisories.model';
 import { AdvisoriesService } from '../api/advisories/advisories.service';
 import { IntroduceModel } from '../api/introduce/introduce.model';
@@ -42,29 +41,26 @@ export class HomeComponent implements OnInit {
   introduce: IntroduceModel;
   urlSafe: SafeResourceUrl;
   news: Advisories[];
-  contructionsNews: Advisories[];
+  constructionNews: Advisories[];
   banner: BannerModel;
 
   constructor(
-    private sanitizer: DomSanitizer,
     private introduceService: IntroduceService,
     private advisoriesService: AdvisoriesService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.introduceService.getInformationOfIntroduce().subscribe((data) => {
       this.introduce = data;
-      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(
-        this.introduce?.youtubeId
-      );
     });
 
     forkJoin([
       this.advisoriesService.getBanner(),
-      this.advisoriesService.getAllNews().pipe(take(6)),
-      this.advisoriesService.getAllAdvisoryContruction().pipe(take(6)),
+      this.advisoriesService.getAllNews(),
+      this.advisoriesService.getAllAdvisoryContruction(),
     ]).subscribe((data) => {
-      [this.banner, this.news, this.contructionsNews] = data;
+      [this.banner, this.news, this.constructionNews] = data;
     });
   }
 }

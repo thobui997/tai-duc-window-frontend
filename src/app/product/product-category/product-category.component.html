@@ -1,41 +1,43 @@
 <div class="container">
   <h2 class="text-center section-title">Sản Phẩm</h2>
-  <ng-container *ngIf="products$ | async as products; else noItem">
-    <div class="row row-cols-1 row-cols-md-3">
-      <div class="col mb-4" *ngFor="let product of products">
-        <!-- Card -->
-        <div class="card">
-          <!-- Card image -->
-          <div class="view overlay zoom">
-            <img
-              style="height: 180px !important"
-              class="card-img-top"
-              [src]="product?.avatar.url"
-              alt="Card image cap"
-            />
-            <a [routerLink]="['/product/detail', product?.id]">
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
+  <ng-container *ngIf="products$ | async as products">
+    <ng-container *ngIf="products.length > 0; else noItem">
+      <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4" *ngFor="let product of products">
+          <!-- Card -->
+          <div class="card">
+            <!-- Card image -->
+            <div class="view overlay zoom">
+              <img
+                style="height: 180px !important"
+                class="card-img-top"
+                [src]="product?.avatar.url"
+                alt="Card image cap"
+              />
+              <a [routerLink]="['/product/detail', product?.id]">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
 
-          <!-- Card content -->
-          <div class="card-body" style="height: 262px !important">
-            <!-- Title -->
-            <h4 class="card-title text-clip-2">{{ product?.name | lowercase | titlecase }}</h4>
-            <hr/>
-            <!-- Text -->
-            <p class="card-text text-clip">{{ product?.description }}</p>
-            <!-- Link -->
-            <a
-              [routerLink]="['/product/detail', product?.id]"
-              class="black-text d-flex justify-content-end"
-            >
-              <span>Chi Tiết <i class="fas fa-angle-double-right"></i></span>
-            </a>
+            <!-- Card content -->
+            <div class="card-body" style="height: 262px !important">
+              <!-- Title -->
+              <h4 class="card-title text-clip-2">{{ product?.name | lowercase | titlecase }}</h4>
+              <hr/>
+              <!-- Text -->
+              <p class="card-text text-clip">{{ product?.description }}</p>
+              <!-- Link -->
+              <a
+                [routerLink]="['/product/detail', product?.id]"
+                class="black-text d-flex justify-content-end"
+              >
+                <span>Chi Tiết <i class="fas fa-angle-double-right"></i></span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ng-container>
   </ng-container>
   <ng-template #noItem>
     <h3 class="text-center">Không có sản phẩm nào</h3>
