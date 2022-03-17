@@ -8,12 +8,7 @@
           <div class="card w-100">
             <!-- Card image -->
             <div class="view overlay zoom">
-              <img
-                style="height: 180px !important"
-                class="card-img-top"
-                [src]="product?.avatar.url"
-                [alt]="product?.avatar.name"
-              />
+              <app-lazy-load-image [url]="product?.avatar.url"></app-lazy-load-image>
               <a [routerLink]="['/product/detail', product?.id]">
                 <div class="mask rgba-white-slight"></div>
               </a>

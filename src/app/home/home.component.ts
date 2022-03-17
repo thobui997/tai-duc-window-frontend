@@ -12,7 +12,7 @@ import { IntroduceService } from '../api/introduce/introduce.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  ourService = [
+  services = [
     {
       image: '../../assets/images/thi cong.jpg',
       title: 'Thi công lắp đặt',

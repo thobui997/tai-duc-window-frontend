@@ -9,6 +9,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { LazyLoadImageComponent } from './lazy-load-image/lazy-load-image.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     ArticleListComponent,
     ArticleDetailComponent,
     SafeUrlPipe,
+    LazyLoadImageComponent,
   ],
   imports: [CommonModule, MDBBootstrapModule.forRoot(), RouterModule, MarkdownModule.forChild()],
   exports: [
@@ -28,7 +30,8 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     JumbotronComponent,
     ArticleListComponent,
     ArticleDetailComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    LazyLoadImageComponent
   ],
 })
 export class SharedModule {}
